@@ -1,4 +1,4 @@
-###### [查询网站所选择的操作系统检验网址:www.netcraft.com](http://www.netcraft.com)
+###### [查询网站的操作系统](http://www.netcraft.com)
 
 ### 软件的分类
 
@@ -207,13 +207,12 @@
 <!--使用a链接发送邮件-->
     <a href="mailto:123@qq.com?cc=456@qq.com,多个人的邮箱,多个人的邮箱,&bcc=789@qq.com&subject=主题内容&body=邮件内容">点击发送邮件</a>
     <!--
-        mailto:     收件人
-        ?cc         抄送人
-        &bcc        密送人
-        &subject    邮件主题
-        &body	    邮件内容
-        mailto	    收件人
-        注意：：如果要同时发送给多个人，那么邮箱地址后面用英文状态下的逗号分隔 
+        mailto      收件人
+        cc          抄送人
+        bcc         密送人
+        subject     邮件主题
+        body	    邮件内容
+        如果要同时发送给多个人，那么邮箱地址后面用英文状态下的逗号分隔 
     -->
 ```
 
@@ -488,7 +487,7 @@
 ```
 
 
-### Css
+### Css篇
 ##### 基本选择器
 
     1.类选择器
@@ -516,7 +515,7 @@
             
 ##### 层级选择器
 
-    1.包含选择器 E E2 / E > E2
+    1.包含选择器 E E2 or E > E2
         格式:
             <style>
                 p a{样式}/*两个元素之间使用空格分隔*/
@@ -640,3 +639,488 @@
         p:after{
             content:"this is a test";
         }
+
+##### 其它选择器
+
+    E:first-child
+        选择元素的正序第一个
+        格式:
+            <style>
+                li:first-child{样式}
+            </style>
+            <ul>
+                <li>1</li>  <!-- 这个被选中 -->
+                <li>2</li>
+                <li>3</li>
+            </ul>
+    E:last-child
+        选择元素的倒序第一个
+        格式:
+            <style>
+                li:last-child{样式}
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>  <!-- 这个被选中 -->
+            </ul>
+    E:nth-child()
+        正序选择，可以输入数字，正数不能输入负数,这个不会跳过。
+        格式:
+            <style>
+                li:nth-child(2){样式} /*如果选择3则不会有任何变化*/
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>      <!-- 这个被选中 -->
+                <a>链接</a>   
+                <li>3</li>
+            </ul>
+    E:nth-last-child()
+        倒叙选择，可以输入数字，正数不能输入负数不会跳过。
+        格式:
+            <style>
+                li:nth-child(3){样式}/*如果选择2则不会有任何变化
+                */
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>          <!-- 这个被选中 -->
+                <a>链接</a>
+                <li>3</li>
+            </ul>
+    E:nth-of-type()
+        正序选择，可以输入数字，正数不能输入负数,这个会跳过
+        格式:
+            <style>
+                li:nth-child(3){样式}/*其实是最后一行增加样式*/
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <a>链接</a>
+                <li>3</li>
+            </ul>
+    E:nth-last-child()
+        倒序选择，可以输入数字，正数不能输入负数,这个不会跳过
+        格式:
+            <style>
+                li:nth-child(2){样式}/*不会有任何样式*/
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <a>链接</a>
+                <li>3</li>
+            </ul>
+    E:nth-last-of-type()
+        倒序选择，可以输入数字，正数不能输入负数,这个会跳过
+        格式:
+            <style>
+                li:nth-child(2){样式}/*其实是那个2增加样式*/
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <a>链接</a>
+                <li>3</li>
+            </ul>
+    E:nth-child(an+b)ａ表示循环跳过的层数，B表示循环起始的位置
+        格式：
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>5</li>
+            </ul>
+            <style>
+                li:nth-child(2n+1){样式}/*只有第三行增加样式*/
+            </style>
+    E:only-chiled               匹配父元素仅有的一个子元素的
+    E:only-of-type              匹配父元素下使用同种标签的唯一一个子元素
+    [ATT=VAL]:enabled           匹配表单中激活的元素
+    [ATT=VAL]:disabled          匹配表单中禁用的元素
+    [ATT=VAL]:checked+n:        匹配表单中被选中的radio或checkbox元素
+        格式：
+            <input type="radio" name="" value="" /><a>男</a>
+            <style>
+                [type='radio']:checked+a{
+                    background-color:red;
+                }
+            </style>
+            
+    ::selection 匹配用户当前鼠标选中的元素
+        格式:
+            ::selection{
+                color:lime;
+            }
+##### 伪类选择器
+
+    E:link		链接未被访问的样式
+        举例:
+            <style>
+                a:link{
+                    color:red;
+                }
+            </style>
+            <a>百度</a>
+    E:hover		鼠标放上去的样式
+        举例:
+            <style>
+                a:hover{
+                    color:pink;
+                }
+            </style>
+            <a>百度</a>
+    E:Visited	链接被访问的样式
+        举例:
+            <style>
+                a:visited{
+                    color:black;
+                }
+            </style>
+            <a>百度</a>
+    E:focus		获得焦点时候的样式
+        举例:
+            <style>
+                input:focus{
+                    background-color:red;
+                    margin-left:600px;
+                }
+            </style>
+            <input type="text" name="admin" value="" autofocus />
+    E:target	到达目标后的样式
+        举例:
+            <style>
+                #a:target{
+                    margin-left:60px;
+                }
+            </style>
+            <a href="#a">百度</a>
+            <a id="a">移动</a>
+        注意:在CSS中只可以写上目标值。否则不能增加样式
+        
+### 常用的属性
+
+> ###### 字体属性
+
+    Font-style 
+        设置字体样式 
+        常用属性值
+            Normal 默认的
+            Italic 斜体
+            Oblique 斜体
+        格式:
+            <p style="font-style:italic">斜体文本</p> 
+
+    Font-family   dacoration:none;
+        用于设置字体的类型
+        格式:
+            <p style="font-family:微软雅黑">微软雅黑的字体</p>
+        注意：页面中该属性设置的字体必须存在于客户端电脑中，才可以使用
+    
+    Font-size 设置字体大小
+        常见的单位：
+            Px:像素 屏幕中的一个点就是一个像素
+            Em:一个汉字的大小 相对值
+            Ex : 就是一个X字体的大小
+            换算：1em=2ex（相对单位）
+        格式：
+            <p style="font-size:100px">100像素的字体</p>
+
+    Font-weight 
+        设置字体的粗细数值格式唯一有用的就一个800
+        Bold 加粗
+        默认值：normal
+        格式:
+            <p style="font-weigth:800">粗体为800</p>
+    
+    	Font-variant  
+    		只对英文有效
+    			Normal 正常字体
+    			Small-caps 将小写字母变为小型的大写字母-----(不常用。)
+    	Font 
+    		字体样式统一设置---（不推荐使用）
+    		注意：使用该属性时，值具有顺序关系，必须依照顺序来写，不存在的可以省略
+    		Font属性顺序
+    			斜体/小型大写字母/粗体/（字体大小/行高） 字体风格
+    		格式:
+    			<p style="font:Italic Small-caps 800 30/60 微软雅黑">一起来</p>
+    
+> ###### 文本属性
+
+    Text-indent:
+        首行缩进
+    
+    Line-height:
+        用于设置单行文本的行高，就是一个的高度
+            1.设置行间距（行高）用于美化效果
+            2.用于单行文本的垂直居中（行高设置为元素高度即可）
+        格式:
+            <p style="border:1px solid red;line-height:60px;">有行高</p>
+    Text-align:
+        用于文字内容的水平居中属性有left  center right	
+        格式:
+            <p style="text-align:center;text-align:right;">居中文字</p>
+        了解的属性：
+                Word-spacing:设置单词的词间距
+                Letter-spacing:设置字母之间的间距
+
+> ###### 背景属性
+
+    	background-color
+    		设置背景颜色，可以设置英文单词作为颜色值，也可以设置#f123456 也可设置
+    		rgb(25,25,25)
+    		格式:
+    			background-color:#123456;
+    	background-image
+    		设置背景图片，需要加上URL引入背景图。经常需要使用到
+    		格式:
+    			background-image:url(./image/a.png);
+    	background-repeat
+    		用于设定背景图像是否重复，可选值有 repeat-x(X轴重复) repeat-y(Y轴重复) no-repeat
+    		不重复
+    		格式:
+    			background-repeat:no-repeat;/*不重复背景图像*/
+    			background-repeat:repeat-x;/*x轴重复图像,横的重复*/
+    			background-repeat:repeat-y;/*Y轴重复，竖的重复*/
+    		注意，这个只有这几个属性。还有一个默认的。基本用不上
+    	bakcground-position
+    		一般多数用于设定网站上面的小图标，可以设定图片的坐标值，可以设定英文值:left righe 
+    		center bottom top 这些值，一般是给两个值。当遇到一个值的时候是正中居中。自动
+    		center
+    		格式:
+    			background-position:bottom right;/*最下面的右边*/
+    			background-position:bottom left;/*最下面的左边*/
+    			background-position:top rigth;/*最上面的右边*/
+    			background-position:top left;/*最上面的左边*/
+    			background-position:center;/**/
+    			background-position:0px -157px;/*这样是设定小图片的左边值 常用的是这个*/
+    		注意:如果写上两个单词属性的话，则会按照规定的来摆放。如果只写一个left 或right都会
+    		居中，一般常用的是小图片的坐标值。在写坐标值的时候一定需要加上px 不然不可以使用。
+    		重点记忆项目。
+    	background-attachment（哎 抬 吃 们T）
+    		设置背景图片是否滚动
+    		常用的属性值:
+    			Fixed	绑定页面，图片固定住，不会滚动
+    			scrool	默认属性，图片会随着滚动而滚动。
+    	background
+    		一起设置所有的样式，并且没有顺序之分。多个属性之间使用空格分隔。记忆方便
+    		格式:
+    			background:red url(./a.png) no-repeat center; /*设置背景图 不重复 居中*/
+    		
+    		相加多少都可以，不需要加的属性就省略。没有顺序之分。
+> ###### 尺寸属性
+
+    width
+        设定宽度，常用的单位是像素 PX  很常用。
+        格式:
+            <div style="width:100px;">经常用到的属性</div>
+    min-width
+        设定最小的宽度,不常用。
+        格式:
+            <div style="min-width:100px;">不常用</div>
+    max-width
+        设定最大的宽度,不常用。
+        格式:
+            <div style="max-width:100px;">不常用</div>
+    max-height
+        设定最大的高度，不常用
+        格式:
+            <div style="max-height:300px;">不常用</div>
+    height
+        设定高度的属性 常用的也是像素 PX 很常用。
+        格式:
+            <div style="height:100px;">常用</div>
+    min-height
+        设定最小的高度，很常用。当超过最小的高度时会自动拉宽。 很常用，一般用于在文字发帖
+        格式:
+            <div style="min-height:300px;">常用的属性</div>
+            
+> ###### 列表属性
+
+    	list-style-type
+    		属性值
+    			none		把li前面的小圆点和数字去掉。ul 和ol都可以去掉
+    			circle		把前面的小圆点变成空心圆。这些都不重要。重点就是none
+    		格式
+    			list-style-type:none;/*去掉前面的小圆点*/
+    			list-style-type:circle;/*变成其它样式的小圆点*/
+    
+    	list-style-image
+    		属性值
+    			url		把li前面的小圆点用图片代替。
+    		注意:如果同时出现type和image的话，那么image的优先级最高。
+    		格式
+    			list-style-image:url(./a.png);/*使用图片代替小圆点*/
+    	list-style-position
+    		属性值
+    			Inside		在内容中增加样式，就是把所有内容包进去
+    			Outside		在内容外增加样式，把所有内容放在外面。
+    		格式
+    			list-style-position:inside;/*这里定义好，在下面继续增加样式即可*/
+    			border:1px solid red;/*可继续增加。*/
+> ###### 定位属性
+
+    	position设置元素的定位方式
+    		属性值
+    			Relative	相对定位  以自己的位置移动	
+    			Absolute	绝对定位  以父元素进行移动，body也是父元素。
+    			Static		默认属性
+    		理解相对定位
+    			相对定位就是根据自己前期所在的位置进行移动，需要给谁相对移动就在谁的CSS中
+    			增加position:relative;然后写上相对移动的位置 px像素。
+    			格式:
+    				position:relative;
+    				left:30px;/*意思就是相对自己当前的位置来向左移动30像素*/
+    
+    		理解绝对定位
+    			绝对定位就是根据body的位置来进行移动。
+    			格式:
+    				position:absolute:
+    				top:30px;/*意思就是根据body的位置来向下移动30像素*/
+    		注意：
+    			1.如果在父元素中写上了是相对还是绝对，在子元素中写上移动的位置。那么会一
+    			起移动。
+    			2.如果存在嵌套关系的标签，父元素设定了定位的类型，那么子标签会遵循父元素
+    			的位置来进行移动，如果父元素没有设定定位的类型，那么子标签会遵循body的坐
+    			标来移动。1.relative	以自己的位置相对定位 2.absolute	以父元素定位
+    			，body也是父元素。
+    		
+    		
+    	Z-index
+    		设定多层元素的显示顺序，数值越大越在上面。最大的是999
+    		格式
+    			z-index:1;
+    			z-index:999;
+> ###### 布局属性
+
+    	在学习布局属性之前，需要学习两个html标签，无意义标签<div></div><span></span> 这两个标签是
+    	无任何意义的标签，DIV会自动占一行，span不会自动占据一行。div是块级元素，span是行内元素。
+    	DIV占一行。span不会占一行。span没有宽高属性。通过CSS可以有。
+    	display
+    		设置元素的显示方式。可以将块级元素变成行内元素，行内元素变成块级元素。
+    		常用的属性值:
+    			inline		将元素变成行内元素显示
+    			block		将元素变成块级元素显示
+    			inline-block	同时具备行内元素和块级元素的属性，可以设置宽高属性。
+    			None		设置元素显示不显示，不显示的话不会占据物理位置。
+    	Table-cell 设定一个元素像表格的单元格一个样式(目的就是垂直居中）
+    	Visibility 设置元素是否显示
+    		属性：
+    			Visible		设置元素显示（默认）
+    			hidden		隐藏不显示。仅仅隐藏元素内容，会占据物理位置。
+    	Overflow-x:设置水平方向溢出显示
+    	Overflow-y:设置垂直防线溢出显示设定内容超出元素宽高的显示方式
+    		常用的值：
+    			Visible:超出部分仍然显示
+    			Scroll:内容超出高度或者宽度将出现滚动条
+    			Hidden:超出内容隐藏处理（超出的内容有可能会被截断）
+    			Overflow:设置水平方向以及垂直方向溢出显示方式
+    			Overflow：hidden ；会自动检索当前元素内的所有元素
+    	float
+    		属性：
+    			left		设置元素向左边浮动
+    			right		设置元素向右边浮动
+    			top		设置元素向上边浮动
+    			bottom		设置元素向下边浮动
+    		格式：
+    			float:left;	float:right;	float:top;	float:bottom;
+    		注意：任何元素一旦使用float属性，那么他的DISPLAY属性将完全失效，均可以设置宽高，
+    		效果类似于inline-block  就是任何元素一但设定了浮动属性，那么都是可以设定宽高的。
+    	如果内层的元素被平浮动，外层元素如何查找高度？
+    		1.直接将外层元素设置为指定的高度
+    		2.使用overflow:hidden 检索当前元素的内部子元素
+    		3.将外层元素设置浮动 和内层元素一起浮动。
+    		4.Clear:用于清除其他元素的浮动属性对当前元素的影响，是在浮动元素的下面增加这个属
+    		性
+    	clear 用于清除其他元素浮动属性的影响、
+    		属性:
+    			left	清除左边元素的浮动
+    			right	清除右边元素的浮动
+    			both	清除所有浮动。（推荐使用）
+
+> ###### 盒子模型
+
+    margin	设置div的外边距的距离。
+        属性:
+            left	设置左边距的值
+        格式:		margin-left:10px;
+            
+            right	设置右边距的值
+        格式：		margin-rightt:10px;
+            top	设置上边距的值
+        格式：		margin-top：10px;
+            bottom	设置下边距的值
+        格式:		margin-bottom:10px;
+    以上的都是单独设置，统一设置的格式有4中。
+    
+    分别是:
+        margin:10px 20px 30px 50px;     -->上 右 下 左 的边距为10 20 30 50顺时针的顺序来定义
+        margin:10px 20px 30px;	        -->分别设定上边距10px  左右边距20px   下边距30px
+        margin:10px 20px;	            ->>上下 左右 的参数 同时设置
+        margin:10px;		            ->>上下左右全部为10边距
+        margin:0 auto;		            ->>上下左右全部为0边距 自动居中。auto
+
+    padding	设置div的内边距的距离。
+        属性:
+            left	设置左内补白的值
+        格式:		padding-left:10px;
+            
+            right	设置右内补白的值
+        格式：		padding-rightt:10px;
+            top	设置上内补白的值
+        格式：		padding-top：10px;
+            bottom	设置下内补白的值
+        格式:		padding-bottom:10px;
+    以上的都是单独设置，统一设置的格式有4中。
+        padding:10px 20px 30px 50px;    -->上 右 下 左 的内补白为10 20 30 50。顺时针的顺序
+        padding:10px 20px 30px;	        -->分别设定上内补白10px  左右边距20px   下边距30px
+        padding:10px 20px;	            ->>上下 左右 的参数 同时设置
+        padding:10px;		            ->>上下左右全部为10边距
+        padding:0 auto;		            ->>上下左右全部为0边距 自动居中。auto
+    注意:margin 和padding类似。padding不同的就是会自动撑大元素。同时可以很好的把padding内的内容很好的居中
+
+> ###### 边框属性
+    border 设定边框的属性。
+        属性：
+            border-color	设置边框的颜色	
+            border-style	设置边框的样式---》实线还是虚线。
+            border-width	设置边框的像素。
+            border:		    统一设置边框的属性，没有顺序。
+            
+        border-left中具有以下子属性
+            border-left-style:	        设置左边框的样式
+            border-left-colore:	        设置左边框的颜色
+            border-left-width:	        设置左边框的像素
+        border-right中具有以下子属性
+            border-right-style:	        设置右边框的样式
+            border-right-colore:	    设置右边框的颜色
+            border-right-width:	        设置右边框的像素
+        border-top中具有以下子属性
+            border-top-style:	        设置上边框的样式
+            border-top-colore:	        设置上边框的颜色
+            border-top-width:	        设置上边框的像素
+        border-bottom中具有以下子属性
+            border-bottom-style:	    设置下边框的样式
+            border-bottom-colore:	    设置下边框的颜色
+            border-bottom-width:	    设置下边框的像素
+
+> ###### 其他属性
+
+    Cursor:
+        设定鼠标样式 pointer 小手 样式
+        格式:
+            cursor:pointer;
+    Zoom:
+        设定元素的缩放倍数  可大可小 能伸能缩
+        格式：
+            zoom:1.5;/*1.5倍放大图片*/
+    Text-decoration:设定文本修饰
+        常用的值
+            Underline:下划线
+            Line-through:删除线 贯穿线
+            None：取消样式/*用于在A链接上面，删除A链接下的横线.*/
+            
+>
+# PHP篇
