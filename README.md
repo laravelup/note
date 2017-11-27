@@ -29,7 +29,7 @@
             HTML5在1999-已经发布草案
             2004-2008 W3C和whatwg合并了
             2008 W3C和whatwg HTML5正式版本（只是制定，并没有发布）
-### 9.创建html文档
+### 创建html文档
 
     文档的命名规则
         1.不允许使用特使字符
@@ -88,7 +88,7 @@
     
     <!--引用JS文件两种方法-->
     <script>
-        <!--js脚本-->
+        //js脚本
     </script>
     <script src="./js/index.js" type="javascript" ></script>
  ```
@@ -292,3 +292,351 @@
  --> 
 <embed></ember>
 ```
+
+### 表格标签
+```html
+<table></table>
+<!--
+属性:
+    border			设定表格的边框
+    width			表格的宽度
+    height			表格的高度
+    background		背景图像
+    ......		
+--> 
+<!--字标签-->
+    <!--定义表格的标题，通常配合<h1></h1>一起使用-->
+    <caption></caption>	
+    
+    <!--表格的头部-->
+    <thead></thead>		
+    
+    <!--表格的内容-->
+    <tbody></tbody>		
+    
+    <!--表格的底部-->
+    <tfoot></tfoot>		
+    
+    <!--定义表格的表头,会自动居中并且加粗。-->
+    <th></th>		
+    
+    <!--定义表格的行数，横排数量。-->
+    <tr></tr>	
+    	<!--
+            属性：
+                center	内容居中配合align使用
+        --> 
+            
+    <!--定义表格的列数，竖排数量。-->
+    <td></td>	
+    	<!--
+            属性：
+                rowspan	需要合并的行数，跨行 竖着的
+                colspan	需要合并的列数，跨列 横着的
+        --> 
+<!--小例子-->
+<table border="1px" width="800px">
+    <caption><h1>学员信息表</h1><caption>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+    
+    <tfoot>
+        <tr>
+            <td colspan="3" height="80px"></td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+### 表单标签
+```html
+<form></form>
+<!--
+属性:
+    action		用于提交到服务器的页面
+    method		提交的方法 GET POST 、、、等
+    enctype		设定表单传输的数据类型，一般在上传文件的时候会使用到。
+-->
+<!--子标签-->
+    <input type="text" />
+    <!--    type属性值列表
+            text		    文本框
+            password	    密码域，输入时会出现星号代替。
+            radio		    单选框,在name中需要写上相同的值，做排斥作用
+            checkbox	    复选框,同上的name写法
+            hidden		    隐藏表单,在浏览器中不会显示任何效果。
+            file		    文件上传表单,加上multiple时是多文件上传，name加上[]
+            reset		    清空表单，把当前填写的内容全部清空。
+            image		    图片上传按钮，当中有Src的属性，链接图片地址。
+            button		    普通按钮，也可以作为提交。
+            submit		    提交按钮，在value中写上文字即可。
+            email		    邮箱表单,验证写入的是否是邮箱
+            Url		        URL验证，必须是完整的URL地址才行。
+            color		    颜色选择表单，方便快捷
+            Tel		        电话表单，在手机端可以出现效果
+            number		    数值表单
+            range		    滑块表单，一般用于数量上的选取
+            search		    搜索表单，在里面写上results="n" 会显示放大镜
+            date		    时期选取
+            time		    时间选取
+            week		    周选取，一选就是一个周
+            month		    月选取，一选就是一个月
+            datetime	    完整时间---目前没有任何效果
+            datetime-local	本机时间。完整的 
+    -->
+    
+    <button type="button"></button>  
+    <!--type属性值列表
+            reset		    清空表单，把当前填写的内容全部清空。
+            button		    普通按钮，也可以作为提交。
+            submit		    提交按钮，在value中写上文字即可。
+    -->
+    
+    <select name="">
+        <!--普通下拉框-->
+        <option value=""></option>
+        
+        <!--下拉框类分组：-->
+        <optgroup label="分组项">
+            <option>小组1</option>
+        </optgroup>
+    </select>
+    
+    <!--大文本域-->
+    <textarea cols="" rows="">内容写在这里</textarea>
+        
+    <!--绑定标签-->
+    <label></label>
+    
+    <!--标签分组-->
+    <fieldset>
+        <legend>性别选择</legend>
+        <label for="">男：<input type="radio" name="sex" value="1" /></label>
+        <label for="">女：<input type="radio" name="sex" value="0" /></label>
+    </fieldset>
+    
+    <!--模仿百度搜索的下拉效果-->
+    搜索：<input type="search" name="so" list="so" />
+    <datalist id="so">
+        <option>手机</option>
+        <option>电脑</option>
+        <option>平板</option>
+    </datalist>
+    <!--注意:在搜索标签中绑定list，在datalist中写上ID值，即可完成下拉效果。在datalist中加上子标签 <option>下拉值</option>即可完成-->
+
+    <!--单选/复选点击文字即可选中效果 --需要把label中的for属性值去除-->
+    <label>男：</input type="Radio" name="sex" value="1" /></label>
+    <label>女：</input type="radio" name="sex" value="0" /></label>
+    <label>复选1</input type="checkbox" name="mult" value="d[]" /></label>
+    <label>复选2</input type="checkbox" name="mult" value="d[]" /></label>
+    
+    <!--form标签与input分离-->
+    <form action="" method="GET" id="form"></form>
+    <input type="text" name="username" form="form" />
+<!--
+    在HTML5中新增的type属性与值
+    readonly		输入域可以选择，但是无法修改
+    disabled		无法获取到焦点,呈现灰色状态。
+    autofocus		自动获取焦点，这是个单属性
+    placeholder=""	代替文本的value值，且不会被提交，颜色表浅。
+    pattern="\d+"	正则验证输入的内容
+    step=""			跳过的数量，可以用在number数值中。
+    required		强制用户输入的项目。
+    min			    最小值，一般可以用于滑块，数值，时间。
+    max			    最大值。一般可以用于滑块，数值，时间。
+    novalidate		取消验证，不验证。可以写在form表单中
+    formaction		改变提交的地址，写在submit写在那个表单中
+    formmethod		改变提交的方式，写在submit写在那个表单中
+    Formectype		改变提交文件的数据类型。同上
+    formnovalidate	取消验证，不做验证。同上
+-->			
+```
+
+### 框架标签
+
+```html
+<!-- 基本上已废弃-->
+<frameset>
+
+<!--
+属性:
+    src         目标地址
+    frameborder 边框
+    cols	    分配行		X轴
+    rows	    分配列		Y轴
+    Noresize    none        禁止页面拖动。
+-->
+<iframe></iframe>
+```
+
+
+### Css
+##### 基本选择器
+
+    1.类选择器
+        格式：
+            <style>
+                .p1{样式}/*在style前面写上.*/
+            </style>
+            <p class="p1">这个是类选择器的定义</p> 
+            
+    2.标签选择器
+        格式：
+            <style>
+                p{样式}/*直接写上标签名*/
+            </style>
+            <p>这个是标签选择器</p>
+    3.ID选择器
+        格式：
+            <style>
+                #a{样式}/*加上#号*/
+            </style>
+            <p id="a">这个是标签选择器</p>
+    4.通配符选择器
+        格式:
+            *{样式}/*定义所有html文档*/
+            
+##### 层级选择器
+
+    1.包含选择器 E E2 / E > E2
+        格式:
+            <style>
+                p a{样式}/*两个元素之间使用空格分隔*/
+                p > a{样式}/*用法和功能一样*/
+            </style>
+            <p>
+                <a></a>
+            </p>
+    2.组合选择器 E,E2
+        格式：
+            <style>
+                h1,p{样式}/*使用英文逗号分隔*/
+            </style>
+            <h1></h1>
+            <p></p>
+    3.E + E2 选择器 选择+号后面第一个标签
+        格式：
+            <style>
+                div + h1{样式}/*这个只会选中一个，也就是第一个H1*/
+            </style>
+            <div></div>
+            <h1>选择这个</h1>
+            <h1>选不中</h1>
+            <h1>选不中</h1>
+            <h1>选不中</h1>
+    3.E ~ E2 选择器
+        格式:
+            <style>
+                div ~ h1{样式}/*全部选中E 标签后面的兄弟元素*/
+            </style>
+            <div></div>
+            <h1>全部选中</h1>
+            <h1>全部选中</h1>
+            <h1>全部选中</h1>
+            <h1>全部选中</h1>
+
+##### 属性选择器
+    属性选择器就是根据属性名或是属性值来找到元素 ATT表示属性名 VAL代表属性值
+    1.E[ATT]
+        匹配标签中的属性名，不考虑属性值，如果不加上E则只会匹配ATT
+        格式：
+            <a href="http://www.baidu.com">百度</a>
+            <style>
+                a[href]{样式}
+                /*下面是不写标签名*/
+                [href]{样式}
+            </style>
+    2.E[ATT='val']写值的时候请加上单引号''
+        匹配ATT中的值一样，如果不一样匹配不到
+        格式：
+            <a href="http://www.baidu.com">百度</a>
+                <style>
+                    a[href='http://www.baidu.com']{样式}
+                </style>
+    3.E[ATT ~= 'val']
+        匹配ATT的值如果有就能匹配的到就是约等于就行。
+        格式：
+            <a href="http://www.baidu.com">百度</a>
+                <style>
+                    a[href ~= '//']{样式}
+                </style>
+    4.E[ATT |= VAL]
+        匹配所有ATT属性具有多个连接分隔符的值，匹配-前的第一个值
+        格式：
+            <h1 title="ab-cd-ef">横杆分隔符选择器</h1>
+                <style>
+                    a[title |= 'ab']{样式}
+                </style>
+    CSS3用到的属性选择器
+    5.[ATT ^= VAL]
+        匹配ATT的val开头的元素
+        格式：
+            <h1 title="ab cd ef">匹配第一个值</h1>
+                <style>
+                    a[title |= 'ab']{样式}
+                </style>
+    6.[ATT $= VAL]
+        匹配val的结尾值
+        格式:
+            <h1 title="ab cd ef">匹配第一个值</h1>
+                <style>
+                    a[title |= 'f']{样式}
+                </style>
+    7.[ATT *= VAL]
+        匹配VAL的值只要有就行
+        格式：
+            <h1 title="ab cd ef">匹配第一个值</h1>
+                <style>
+                    a[title |= 'f']{样式}
+                </style>
+
+##### 结构伪类选择器
+    伪类选择器不是真的类选择器，是对没有标签的内容增加样式。
+    E:First-line	E元素的第一行
+        格式:
+            <style>
+                li:forst-line{样式}
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+    E:first-letter	E元素的第一个字母
+        格式：	
+            <style>
+                li:forst-line{样式}
+            </style>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+    E:Before	E元素之前
+        p:before{
+            content:"这是放P之前";
+        }
+    E:after		E元素之后
+        p:after{
+            content:"this is a test";
+        }
