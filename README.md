@@ -868,48 +868,48 @@
 
 > ###### 背景属性
 
-    	background-color
-    		设置背景颜色，可以设置英文单词作为颜色值，也可以设置#f123456 也可设置
-    		rgb(25,25,25)
-    		格式:
-    			background-color:#123456;
-    	background-image
-    		设置背景图片，需要加上URL引入背景图。经常需要使用到
-    		格式:
-    			background-image:url(./image/a.png);
-    	background-repeat
-    		用于设定背景图像是否重复，可选值有 repeat-x(X轴重复) repeat-y(Y轴重复) no-repeat
-    		不重复
-    		格式:
-    			background-repeat:no-repeat;/*不重复背景图像*/
-    			background-repeat:repeat-x;/*x轴重复图像,横的重复*/
-    			background-repeat:repeat-y;/*Y轴重复，竖的重复*/
-    		注意，这个只有这几个属性。还有一个默认的。基本用不上
-    	bakcground-position
-    		一般多数用于设定网站上面的小图标，可以设定图片的坐标值，可以设定英文值:left righe 
-    		center bottom top 这些值，一般是给两个值。当遇到一个值的时候是正中居中。自动
-    		center
-    		格式:
-    			background-position:bottom right;/*最下面的右边*/
-    			background-position:bottom left;/*最下面的左边*/
-    			background-position:top rigth;/*最上面的右边*/
-    			background-position:top left;/*最上面的左边*/
-    			background-position:center;/**/
-    			background-position:0px -157px;/*这样是设定小图片的左边值 常用的是这个*/
-    		注意:如果写上两个单词属性的话，则会按照规定的来摆放。如果只写一个left 或right都会
-    		居中，一般常用的是小图片的坐标值。在写坐标值的时候一定需要加上px 不然不可以使用。
-    		重点记忆项目。
-    	background-attachment（哎 抬 吃 们T）
-    		设置背景图片是否滚动
-    		常用的属性值:
-    			Fixed	绑定页面，图片固定住，不会滚动
-    			scrool	默认属性，图片会随着滚动而滚动。
-    	background
-    		一起设置所有的样式，并且没有顺序之分。多个属性之间使用空格分隔。记忆方便
-    		格式:
-    			background:red url(./a.png) no-repeat center; /*设置背景图 不重复 居中*/
-    		
-    		相加多少都可以，不需要加的属性就省略。没有顺序之分。
+    background-color
+        设置背景颜色，可以设置英文单词作为颜色值，也可以设置#f123456 也可设置
+        rgb(25,25,25)
+        格式:
+            background-color:#123456;
+    background-image
+        设置背景图片，需要加上URL引入背景图。经常需要使用到
+        格式:
+            background-image:url(./image/a.png);
+    background-repeat
+        用于设定背景图像是否重复，可选值有 repeat-x(X轴重复) repeat-y(Y轴重复) no-repeat
+        不重复
+        格式:
+            background-repeat:no-repeat;/*不重复背景图像*/
+            background-repeat:repeat-x;/*x轴重复图像,横的重复*/
+            background-repeat:repeat-y;/*Y轴重复，竖的重复*/
+        注意，这个只有这几个属性。还有一个默认的。基本用不上
+    bakcground-position
+        一般多数用于设定网站上面的小图标，可以设定图片的坐标值，可以设定英文值:left righe 
+        center bottom top 这些值，一般是给两个值。当遇到一个值的时候是正中居中。自动
+        center
+        格式:
+            background-position:bottom right;/*最下面的右边*/
+            background-position:bottom left;/*最下面的左边*/
+            background-position:top rigth;/*最上面的右边*/
+            background-position:top left;/*最上面的左边*/
+            background-position:center;/**/
+            background-position:0px -157px;/*这样是设定小图片的左边值 常用的是这个*/
+        注意:如果写上两个单词属性的话，则会按照规定的来摆放。如果只写一个left 或right都会
+        居中，一般常用的是小图片的坐标值。在写坐标值的时候一定需要加上px 不然不可以使用。
+        重点记忆项目。
+    background-attachment（哎 抬 吃 们T）
+        设置背景图片是否滚动
+        常用的属性值:
+            Fixed	绑定页面，图片固定住，不会滚动
+            scrool	默认属性，图片会随着滚动而滚动。
+    background
+        一起设置所有的样式，并且没有顺序之分。多个属性之间使用空格分隔。记忆方便
+        格式:
+            background:red url(./a.png) no-repeat center; /*设置背景图 不重复 居中*/
+        
+        相加多少都可以，不需要加的属性就省略。没有顺序之分。
 > ###### 尺寸属性
 
     width
@@ -939,60 +939,60 @@
             
 > ###### 列表属性
 
-    	list-style-type
-    		属性值
-    			none		把li前面的小圆点和数字去掉。ul 和ol都可以去掉
-    			circle		把前面的小圆点变成空心圆。这些都不重要。重点就是none
-    		格式
-    			list-style-type:none;/*去掉前面的小圆点*/
-    			list-style-type:circle;/*变成其它样式的小圆点*/
-    
-    	list-style-image
-    		属性值
-    			url		把li前面的小圆点用图片代替。
-    		注意:如果同时出现type和image的话，那么image的优先级最高。
-    		格式
-    			list-style-image:url(./a.png);/*使用图片代替小圆点*/
-    	list-style-position
-    		属性值
-    			Inside		在内容中增加样式，就是把所有内容包进去
-    			Outside		在内容外增加样式，把所有内容放在外面。
-    		格式
-    			list-style-position:inside;/*这里定义好，在下面继续增加样式即可*/
-    			border:1px solid red;/*可继续增加。*/
+    list-style-type
+        属性值
+            none		把li前面的小圆点和数字去掉。ul 和ol都可以去掉
+            circle		把前面的小圆点变成空心圆。这些都不重要。重点就是none
+        格式
+            list-style-type:none;/*去掉前面的小圆点*/
+            list-style-type:circle;/*变成其它样式的小圆点*/
+
+    list-style-image
+        属性值
+            url		把li前面的小圆点用图片代替。
+        注意:如果同时出现type和image的话，那么image的优先级最高。
+        格式
+            list-style-image:url(./a.png);/*使用图片代替小圆点*/
+    list-style-position
+        属性值
+            Inside		在内容中增加样式，就是把所有内容包进去
+            Outside		在内容外增加样式，把所有内容放在外面。
+        格式
+            list-style-position:inside;/*这里定义好，在下面继续增加样式即可*/
+            border:1px solid red;/*可继续增加。*/
 > ###### 定位属性
 
-    	position设置元素的定位方式
-    		属性值
-    			Relative	相对定位  以自己的位置移动	
-    			Absolute	绝对定位  以父元素进行移动，body也是父元素。
-    			Static		默认属性
-    		理解相对定位
-    			相对定位就是根据自己前期所在的位置进行移动，需要给谁相对移动就在谁的CSS中
-    			增加position:relative;然后写上相对移动的位置 px像素。
-    			格式:
-    				position:relative;
-    				left:30px;/*意思就是相对自己当前的位置来向左移动30像素*/
-    
-    		理解绝对定位
-    			绝对定位就是根据body的位置来进行移动。
-    			格式:
-    				position:absolute:
-    				top:30px;/*意思就是根据body的位置来向下移动30像素*/
-    		注意：
-    			1.如果在父元素中写上了是相对还是绝对，在子元素中写上移动的位置。那么会一
-    			起移动。
-    			2.如果存在嵌套关系的标签，父元素设定了定位的类型，那么子标签会遵循父元素
-    			的位置来进行移动，如果父元素没有设定定位的类型，那么子标签会遵循body的坐
-    			标来移动。1.relative	以自己的位置相对定位 2.absolute	以父元素定位
-    			，body也是父元素。
-    		
-    		
-    	Z-index
-    		设定多层元素的显示顺序，数值越大越在上面。最大的是999
-    		格式
-    			z-index:1;
-    			z-index:999;
+    position设置元素的定位方式
+        属性值
+            Relative	相对定位  以自己的位置移动	
+            Absolute	绝对定位  以父元素进行移动，body也是父元素。
+            Static		默认属性
+        理解相对定位
+            相对定位就是根据自己前期所在的位置进行移动，需要给谁相对移动就在谁的CSS中
+            增加position:relative;然后写上相对移动的位置 px像素。
+            格式:
+                position:relative;
+                left:30px;/*意思就是相对自己当前的位置来向左移动30像素*/
+
+        理解绝对定位
+            绝对定位就是根据body的位置来进行移动。
+            格式:
+                position:absolute:
+                top:30px;/*意思就是根据body的位置来向下移动30像素*/
+        注意：
+            1.如果在父元素中写上了是相对还是绝对，在子元素中写上移动的位置。那么会一
+            起移动。
+            2.如果存在嵌套关系的标签，父元素设定了定位的类型，那么子标签会遵循父元素
+            的位置来进行移动，如果父元素没有设定定位的类型，那么子标签会遵循body的坐
+            标来移动。1.relative	以自己的位置相对定位 2.absolute	以父元素定位
+            ，body也是父元素。
+        
+        
+    Z-index
+        设定多层元素的显示顺序，数值越大越在上面。最大的是999
+        格式
+            z-index:1;
+            z-index:999;
 > ###### 布局属性
 
     	在学习布局属性之前，需要学习两个html标签，无意义标签<div></div><span></span> 这两个标签是
@@ -1122,5 +1122,5 @@
             Line-through:删除线 贯穿线
             None：取消样式/*用于在A链接上面，删除A链接下的横线.*/
             
->
-# PHP篇
+
+
